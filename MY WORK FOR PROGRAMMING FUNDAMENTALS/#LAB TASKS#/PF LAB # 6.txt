@@ -1,0 +1,199 @@
+// TASK NO 1:
+
+/*Consider the following function main:
+int main()
+{
+int inStock[10][4];
+int alpha[20];
+int beta[20];
+int gamma[4] = {11, 13, 15, 17};
+int delta[10] = {3, 5, 2, 6, 10, 9, 7, 11, 1, 8};
+.
+.
+.
+}
+1. Write the definition of the function setZero that initializes any onedimensional array of type int to 0.
+2. Write the definition of the function inputArray that prompts the user to input 20 numbers and stores the numbers into alpha.
+3. Write the definition of the function doubleArray that initializes the elements of beta
+ to two times the corresponding elements in alpha. 
+ Make sure that you prevent the function from modifying the elements of alpha.
+4. Write the definition of the function copyGamma
+ that sets the elements of the first row of inStock to gamma and the remaining rows of inStock 
+to three times the previous row of inStock.
+ Make sure that you prevent the function from modifying the elements of gamma.
+5. Write the definition of the function copyAlphaBeta that stores alpha into the first five rows of inStock and beta into 
+the last five rows of inStock. Make sure that you prevent the function from modifying the elements of alpha and beta.
+6. Write the definition of the function printArray that prints any onedimensional array of type int.
+ Print 15 elements per line.
+7. Write the definition of the function setInStock that prompts the user to input the elements for the first column of inStock.
+ The function should then set the elements in the remaining columns to two times the corresponding element
+  in the previous column, minus the corresponding element in delta.
+8. Write C++ statements that call each of the functions in parts a through g.
+9. Write a C++ program that tests the function main and the functions discussed in parts a through g. 
+(Add additional functions, such as printing a two-dimensional array, as needed.)*/
+
+
+
+/*#include<iostream>
+using namespace std;
+int setzero(int arr[],int size)
+{
+	int i;
+	for (i=0;i<size;i++)
+	{
+		arr[i]=0;
+	}
+	cout << endl;
+}
+
+void inputarray(int alpha[])
+{
+	int i;
+	cout <<"Enter the 20 number" << endl;
+	for (i=0;i<20;i++)
+	{
+		cin >> alpha[i];
+	}
+}
+
+void doublearray(int alpha[],int beta[])
+{
+	int i;
+	for(i=0;i<20;i++)
+	{
+		beta[i]=alpha[i]*2;
+	}
+}
+
+void copygamma(int instock[][4],int gamma[])
+{
+	int i,j;
+	for (i=0;i<4;i++)
+	{
+		instock[0][i]=gamma[i];
+	}
+	for (i=1;i<10;i++)
+	{
+		for (j=0;j<4;j++)
+		{
+			instock[i][j]=3*instock[i-1][j];
+		}
+	}
+}
+
+void copyalphabeta(int instock[][4],int alpha[],int beta[])
+{
+	int i,j;
+	for (i=0;i<5;i++)
+	{
+		for (j=0;j<4;j++)
+		{
+			instock[i][j]=alpha[i*4+j];
+		}
+	}
+	for (i=5;i<10;i++)
+	{
+		for (j=0;j<4;j++)
+		{
+			instock[i][j]=beta[(i-5)*4+j];
+		}
+	}
+}
+
+void printarray(int arr[],int size)
+{
+	int i;
+	cout <<"{";
+	for (i=0;i<size;i++)
+	{
+		cout << arr[i];
+		if(i!=size-1)
+		cout <<",";
+		if ((i+1)%15==0)
+		cout << endl;
+		if ((i+1)==size)
+		cout <<"}";
+	}
+	cout << endl;
+}
+
+void setinstock(int instock[][4],int delta[])
+{
+	 int i,j;
+	 cout <<"Enter the 10 numbers" << endl;
+	 for (i=0;i<10;i++)
+	 {
+	 	for ( j=0;j<4;j++)
+	 	{
+	 		if (j==0)
+			 {
+			 	cin >> instock[i][j];
+			 }
+			 else
+			 {
+			 	instock[i][j]=(2*instock[i][j-1])- delta[i];
+			 }
+		 }
+	 }
+}
+
+void print2darray( int instock[][4])
+{
+	int i,j;
+	cout <<"colume1\t colume2\t colume3\t colume4\t " << endl;
+	for (i=0;i<10;i++)
+	{
+		for (j=0;j<4;j++)
+		{
+			cout << instock[i][j] << "\t\t";
+		}
+		 cout << endl;
+	}
+	
+}
+
+
+int main()
+{
+	
+	int instock[10][4]; // 10 row and 4 columes
+	int alpha [20];
+	int beta[20];
+	int gamma[4]={11,13,15,17};
+	int delta[10]={3,5,2,6,10,9,7,11,1,8};
+	
+	cout <<"function setzero" << endl;
+	setzero(alpha,20);
+	cout <<"alpha=";
+	printarray(alpha,20);
+	
+	
+	cout <<"function inputarray" << endl;
+	inputarray(alpha);
+	cout <<"alpha=";
+	printarray(alpha,20);
+	
+	cout <<"function doublearray" << endl;
+	doublearray(alpha,beta);
+	cout <<"beta=";
+    printarray(beta,20);
+	
+	cout <<"function copygamma" << endl;
+	copygamma(instock,gamma);
+	print2darray(instock);
+	
+	cout <<"copyalphabeta" << endl;
+	copyalphabeta(instock,alpha,beta);
+	print2darray(instock);
+	
+	cout <<"setinstock" << endl;
+	setinstock(instock,delta);
+	print2darray(instock);
+	
+	cout <<"function2darray " << endl;
+	print2darray(instock);
+	
+
+	system ("pause");
+	return 0;
+}*/

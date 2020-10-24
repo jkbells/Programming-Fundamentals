@@ -1,0 +1,326 @@
+PROGRAMMING FUNDAMENTALS ASSIGMENT NO 1  :
+
+TASK NO 5 :
+
+
+#include<iostream>
+using namespace std;
+//function to calculate the earthquake magnitude
+void calculate_earthquake_magnitude(float mag)
+{
+	if (mag<=2.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a MICRO earthquake." << endl;
+	}
+	else if (mag>=2.0 && mag<=3.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a VERY MINOR earthquake." << endl;
+	}
+	else if (mag>=3.0 && mag<=4.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a MINOR earthquake." << endl;
+	}
+	else if(mag>=4.0 && mag<=5.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a LIGHT earthquake." << endl;
+	}
+	else if (mag>=5.0 && mag<=6.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a MODERATE earthquake." << endl;
+	}
+	else if (mag>=6.0 && mag<=7.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a STRONG earthquake." << endl;
+	}
+	else if (mag>=7.0 && mag<=8.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a MAJOR earthquake." << endl;
+	}
+	else if (mag>=8.0 && mag<=10.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a GREAT earthquake." << endl;
+	}
+	else if (mag>=10.0)
+	{
+		cout <<" magnitude " << mag <<" earthquake is considered to be a METEORIC earthquake." << endl;
+	}
+}
+int main()
+{
+	float mag;
+	cout <<"enter the earth quake magnitude" << endl;
+	cin >> mag;
+	//call the function
+	calculate_earthquake_magnitude(mag);
+	system ("pause");
+	return 0;
+}
+<<< ____________________________________________________>>>
+
+TASK NO 3:
+#include<iostream>
+using namespace std;
+// function to change the temperature celsius to fahrenheit
+void celsius_to_fahrenheit(double celsius)
+{
+	double f;
+	f=(celsius*9/5)+32;
+	cout << "the temperature is converted to fahrenheit" <<  f << endl;
+}
+// function to change the temperature fahrenheit to celsius
+void fahrenheit_to_celsius(double fahrenheit)
+{
+	double c;
+	c=(fahrenheit-32)*5/9;
+	cout <<"the temperature is converted to celsius" << c << endl;
+}
+int main()
+{
+	double celsius;
+	double fahrenheit;
+	cout <<"enter the temperature into celsius" << endl;
+	cin >> celsius;
+	celsius_to_fahrenheit(celsius);
+	cout <<"enter the temperature into fahrenheit" << endl;
+	cin >> fahrenheit;
+	fahrenheit_to_celsius(fahrenheit);
+	system ("pause");
+	return 0;
+}
+
+<<<___________________________________________________>>>
+
+TASK NO 2:
+#include <iostream>
+using namespace std;
+bool leapYear(int y);
+int main()
+{
+   int y;
+   cout<<"Enter year: ";
+   cin>>y;
+   //Calling function
+   bool flag = leapYear(y);
+   if(flag == true)  
+      cout<<y<<" is a leap Year"; 
+   else 
+      cout<<y<<" is not a leap Year";
+   system ("pause");
+   return 0;
+}
+bool leapYear(int y)
+{
+   bool isLeapYear = false;
+   if (y % 4 == 0)
+   {
+      if (y % 100 == 0)
+	  {
+         if (y % 400 == 0) 
+		 {
+            isLeapYear = true;
+         }
+      } 
+      else isLeapYear = true;
+   }
+   return isLeapYear;
+}
+<<_____________________________________>>
+TASK NO 1:
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void setPrices(double&, double&);
+void getInfo(bool&, bool&, bool&, int&, int&);
+double membershipCost(double, int, double, int, bool, bool, bool);
+void displayCenterInfo();
+int main()
+{
+    bool seniorCitizen;
+    bool boughtFiveOrMoreSessions;
+    bool paidTwelveOrMoreMonths;
+
+    int numberOfMembershipMonths;
+    int numberOfPersonalTrainingSessions;
+    double regularMembershipChargesPerMonth;
+    double costOfOnePersonalTrainingSession;
+    double memberCost;
+    displayCenterInfo();
+    cout << endl;
+    setPrices(regularMembershipChargesPerMonth, costOfOnePersonalTrainingSession);
+    getInfo(seniorCitizen, boughtFiveOrMoreSessions, paidTwelveOrMoreMonths, numberOfMembershipMonths, numberOfPersonalTrainingSessions);
+    memberCost = membershipCost(regularMembershipChargesPerMonth, numberOfMembershipMonths, costOfOnePersonalTrainingSession,
+        numberOfPersonalTrainingSessions, seniorCitizen, boughtFiveOrMoreSessions, paidTwelveOrMoreMonths);
+    cout << "$" << memberCost;
+    system("pause");
+    return 0;
+}
+
+void displayCenterInfo()
+{
+    cout << "Welcome to Stay Healty and Fit center." << endl;
+    cout << "This program determines the cost of a new membership." << endl;
+    cout << "If you are a senior citizen, then the discount is 30% of "
+        << "of the regular membership price." << endl;
+    cout << "If you buy membership for twelve months and pay today, the "
+        << "discount is 15%." << endl;
+    cout << "If you buy and pay for 6 or more personal training session today, "
+        << "the discount on each session is 20%." << endl;
+}
+
+void setPrices(double& regMemPrice, double& personalTrSesCost)
+{
+
+    cout << "Please enter the cost of regular Membership per month: " << endl;
+    cin >> regMemPrice;
+
+    cout << "Please enter the cost of one personal traning session: " << endl;
+    cin >> personalTrSesCost;
+
+}
+
+void getInfo(bool& senCitizen, bool& bFiveOrMoreSess, bool& paidTwMnth,
+    int& nOfMonths, int& nOfPersonalTrSess)
+{
+    //Senior Verification
+    char userInputSenior;
+    cout << "Are you Senior? Please enter 'Y' or 'N': ";
+    cin >> userInputSenior;
+
+    if (userInputSenior == 'y' && userInputSenior == 'Y')
+    {
+        senCitizen = true;
+    }
+    else
+        senCitizen = false;
+
+    cout << endl;
+
+
+    //Number of personal training session.
+    cout << "Enter the number of personal training sessions bought: ";
+    cin >> nOfPersonalTrSess;
+
+    if (nOfPersonalTrSess >= 5)
+    {
+        bFiveOrMoreSess = true;
+    }
+    else
+        bFiveOrMoreSess = false;
+
+    cout << endl;
+    cout << "Enter the number of months you are paying for: ";
+    cin >> nOfMonths;
+
+    if (nOfMonths >= 12)
+    {
+        paidTwMnth = true;
+    }
+    else
+        paidTwMnth = false;
+
+}
+
+double membershipCost(double regMemPricePerMth, int nOfMonths,
+    double personalTrSesCost, int nOfPersonalTrSess,
+    bool senCitizen, bool bFiveOrMoreSess, bool paidTwMnth)
+{
+    double finalMembershipCost, finalSessionCost;
+
+
+    //Session Discount
+    if (bFiveOrMoreSess)
+    {
+        personalTrSesCost = personalTrSesCost * 0.8;
+    }
+    else
+    {
+        personalTrSesCost = personalTrSesCost;
+    }
+
+
+    //Month Discount
+    if (paidTwMnth)
+    {
+        regMemPricePerMth = regMemPricePerMth * 0.85;
+    }
+    else
+    {
+        regMemPricePerMth = regMemPricePerMth;
+    }
+
+
+    finalMembershipCost = regMemPricePerMth * nOfMonths;
+    finalSessionCost = personalTrSesCost * nOfPersonalTrSess;
+
+    // Check if Senior Citizen Discount Applies
+    if (senCitizen) {
+        return (finalMembershipCost * 0.7) + finalSessionCost ;
+    }
+    Else {
+        return finalMembershipCost + finalSessionCost;
+    }
+
+}
+
+<<________________________________________________________>>
+
+TASK 4:
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+void guess_number(int num)
+{
+	srand(time(0)); 
+num = rand() % 100; 
+isGuessed = false; 
+while (!isGuessed) 
+{ 
+cout << "Enter an integer greater" <<endl;
+cin >> guess; 
+cout << endl; 
+if (guess == num) 
+{ 
+cout << "you win CONGRATES "
+<< "number." << endl; 
+isGuessed = true; 
+} 
+else if (guess < num) 
+cout << "Your LOSE plz TRY AGAIN LATER "
+<< "number.\n Guess again!"
+<< endl; 
+else 
+cout << "Your guess is higher than "
+<< "the number.\n Guess again!"
+<< endl;
+}
+void sorting()
+{
+	int abc[10]={4,7,2,1,5}
+	int temp;
+	for (int i=0;i<10;i++)
+	{
+		for (int j=i;j<10;j++)
+		{
+			if(abc[i]>abc[j])
+			{
+			temp=abc[i];
+			abc[i]=abc[j];
+			abc[j]=temp;
+			}
+		}
+	}
+	for (int i=0;i<10;i++)
+		cout << abc[i]<<"  " 
+}
+
+int main()
+{
+int num; 
+int guess; 
+bool isGuessed;
+cout <<"Guessed the five numbers" << endl;
+cin >> num >> num >> num >> num >> num;
+system ("pause");
+return 0;
+}

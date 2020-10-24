@@ -1,0 +1,228 @@
+// TASK NO 1:
+
+/*Suppose that the cost of sending an international fax is calculated as follows:
+Service charges $3.00; $.20 per page for the first 10 pages; and $0.10 for each additional page.
+ Design a function that takes the number of pages to be faxed as a parameter.
+  The Function then uses the number of pages to be faxed to calculate and return the amount due.
+Ask user to enter number of pages and pass it to function*/
+
+/*#include<iostream>
+using namespace std;
+double ser_charges=3.00;
+double per_pages = 0.20;
+double additional_pages=0.10;
+double fax_cal(int nop)
+{
+	double cost;
+	int add;
+	if (nop<=10)
+	{
+		cost = ser_charges+(nop*0.20);
+		cout <<"the cost of the number of pages less than 10 is=" << cost << endl;
+	}
+	else
+	{
+		add=nop-10;
+		cost = ser_charges+(0.20*10)+(add*0.10);
+		cout <<"the cost of the number of pages that is greater than 10=" << cost << endl;
+	}
+	return cost;
+}
+int main()
+{
+	int nop;
+	cout <<"enter the number of the pages" << endl;
+	cin >> nop;
+	fax_cal(nop);
+	system ("pause");
+	return 0;;
+}*/
+
+// TASK NO 2; 
+
+/* Guess a Word
+Design a function that prompts the user for a word, and then prompts the user for a letter. Your function should count the number of times the letters entered appear in the word, and then continue prompting for new letters.
+The following is a copy of the screen results that might appear after running your program, depending on the data entered.
+Output:
+Please enter a word: howdy
+The word contains 5 characters.
+What letter would you like to guess? (Enter zero to quit.) a
+There are 0 a's.
+What letter would you like to guess? (Enter zero to quit.) e
+There are 0 e's.
+What letter would you like to guess? (Enter zero to quit.) d
+There are 1 d's.
+What letter would you like to guess? (Enter zero to quit.) o
+There are 1 o's.
+What letter would you like to guess? (Enter zero to quit.) y
+There are 1 y's.
+What letter would you like to guess? (Enter zero to quit.) b
+There are 0 b's.
+What letter would you like to guess? (Enter zero to quit.) 0*/
+
+/*#include<iostream>
+#include<string>
+using namespace std;
+int guess_me(string  guess,char ch)
+{
+	int count =0;
+	for (int i=0;i<guess.size();i++)
+	{
+		if(ch==guess[i])
+		{
+			count ++;
+		}
+	}
+	return count;
+}
+int main()
+{
+	string guess;
+	char ch;
+	int count ;
+	cout <<"please enter the word" << endl;
+	cin >> guess;
+		cout << "there are " << guess.length() << "\t" "characters in the string " << endl;
+	cout <<"what letter would you like to guess? (enter zero to quit)";
+	cin >> ch;
+	while (ch!='0')
+	{
+		count =guess_me(guess,ch);
+		cout <<"there are" << count << "  " << ch << " s " << endl;
+			cout <<"what letter would you lke to guess? (enter zero to quit)";
+	cin >> ch;
+
+	}
+	system ("pause");
+	return 0;
+}*/
+
+// TASK NO 3:
+
+/*Write a program that takes two number from the user.
+i. Function that output the sum of all even numbers between firstNum and secondNum.
+ii. Function that output the numbers and their squares between firstNum and secondNum
+iii. Function that output the square of the odd numbers between firstNum and secondNum*/
+
+/*#include<iostream>
+using namespace std;
+void even_function(int num1,int num2)
+{
+	int sum=0;
+	while (num1<=num2)
+	{
+		if(num1%2==0)
+		{
+			cout << num1 << endl;
+			sum = sum+num1;
+		}
+		num1++;
+	}
+	cout <<"the sum of all the even numbers are=" << sum << endl;
+}
+
+void square_function(int num1,int num2)
+{
+	while (num1<=num2)
+	{
+		cout << num1 << "*" << num1 << "=" << num1*num1 << endl;
+		num1++;
+	}
+}
+void odd_function(int num1,int num2)
+{
+	while (num1<=num2)
+	{
+		if(num1%2==1)
+		{
+			cout << num1 << endl;
+			cout << num1 << "*" << num1 << "=" << num1*num1 << endl;	
+		}
+		num1++;
+	}
+}
+int main()
+{
+	int num1,num2;
+	cout <<"enter the first number" << endl;
+	cin >> num1;
+	cout <<"enter the second number" << endl;
+	cin >> num2;
+	even_function(num1,num2);
+	square_function(num1,num2);
+	odd_function(num1,num2);
+	system ("pause");
+	return 0;
+}*/
+
+// TASK NO 4:
+
+/*Write a function that takes integer as a parameter and outputs if the passed integer is Perfect numbers or not.
+ How to generate all perfect numbers between given interval using loop Perfect number is a
+  positive integer which is equal to the sum of its proper positive divisors.
+For example: 
+6 is the first perfect number Proper divisors of 6 are 1, 2, 3 Sum of its proper divisors = 1 + 2 + 3 = 6. 
+Hence 6 is a perfect number*/
+
+/*#include<iostream>
+using namespace std;
+int main()
+{
+	int n,sum=0;
+	cout <<"enter your number" << endl;
+	cin >> n;
+	for (int i=1;i<n;i++)
+	{
+		if(n%i==0)
+			sum = sum+i;
+	}
+	if(sum==n)
+		cout <<"the number is perfect" << endl;
+	else
+		cout <<"the number is not perfect" << endl;
+	system ("pause");
+	return 0;
+}*/
+
+// TASK NO 5:
+
+/*A carpet cleaning company estimates cleaning prices assuming a room size of 10 feet by 12 feet at a cost of $39. 
+Rooms smaller than 10 feet by 12 feet are charged at the standard room size. 
+Rooms larger than 10 by 12 feet are charged the standard rate plus $.25 per square foot for each foot greater than the standard room size. 
+Design a function that takes the size of each room in length and width.
+ Calculate the cost of cleaning the rooms and return the cost.*/
+ 
+
+/*#include<iostream>
+#include<cmath>
+using namespace std;
+int room_size(int lenght , int width)
+{
+	int standard_size;
+	int cost;
+	int room_size;
+	int add;
+	standard_size = 10*12;
+	room_size=lenght*width;
+	if(room_size<=standard_size)
+	{
+		cost=39;
+	}
+	else
+	{
+		add = room_size-120;
+		cost = 39+(0.25*add);
+		cout <<"the cost of the room" << "="  << cost << endl;
+	}
+	return cost;
+}
+int main()
+{
+	int l,w;
+	cout <<"enter the length and width" << endl;
+	cin >> l>> w;
+	cout<<"cost of the room" << room_size(l,w);
+	system ("pause");
+	return 0;
+}*/
+

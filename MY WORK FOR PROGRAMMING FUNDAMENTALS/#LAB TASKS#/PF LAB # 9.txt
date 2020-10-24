@@ -1,0 +1,235 @@
+TASK NO 1:
+/*1. Create the design for a program that keeps track of the hits, walks, and outs of a baseball team. Use a concept of 2D arrays to keep track of each player’s statistics. The player number is the index of the row. Read the data from the file which contains data that includes the player number, hits, walks, outs and At Bats. baseball.txt  
+ 
+ 
+ 
+1. write a function that read the data from the file baseball.txt and store it a 2D array hint while reding the file don’t read the first line as it contains string.  
+2. write a function that find the player number with the highest Hits (you are not allowed to use built-in functions)
+3. write a function that find the player number with the highest Walks (you are not allowed to use built-in functions)
+4. write a function that find the player number with the highest Outs (you are not allowed to use built-in functions) 
+5. write a function that find the player number with the highest At bats (you are not allowed to use built-in functions) 
+6. write a function that will write and also print the player numbers who have highest hits, walks, Outs and at bats in a performance.txt */
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <fstream>
+using namespace std;
+
+//functions...
+int loadArrays(int [], int [], int [], int [], int []);
+void calcBatAvg(int[], int[], int[], int);
+void printStats(int [], int [], int [], int [], int [],int[], int);
+void teamAVG(int[], int[], int[],int[], int);
+void best(int[], int[],int);
+void worst(int[], int[], int);
+
+const int SIZE = 20;
+int playerNum[SIZE];
+int atBats[SIZE], hits[SIZE],runs[SIZE], rbis[SIZE], batAvg[SIZE];
+
+
+int main(int argc, const char * argv[]) {
+    
+    
+    int numberOfPlayers;
+
+    
+    
+    
+    numberOfPlayers = loadArrays(playerNum, atBats, hits, runs, rbis);
+    
+    
+    calcBatAvg(hits, atBats, batAvg, numberOfPlayers);
+    printStats(playerNum, atBats, hits, runs, rbis,batAvg, numberOfPlayers);
+    teamAVG(atBats, hits,runs,rbis, numberOfPlayers);
+    best(batAvg, playerNum ,numberOfPlayers);
+    worst(batAvg, playerNum ,numberOfPlayers);
+
+system (“pause”);
+    
+    
+    return 0;
+}
+
+//load array
+int loadArrays(int player[], int bat[], int hit[], int run[], int rbi[])
+{
+    int count = 0;
+    ifstream statsIn;
+    //open file
+    statsIn.open("statsFile.rtf");
+   
+    // this will alert user if there is a problem opening the file
+    if (statsIn.fail()) {
+        cout << "Error opening the file\n";
+        return 0;
+    }
+    
+    while( statsIn >> player[count]>> bat[count]>> hit[count]>> run[count]>> rbi[count])
+    { count++;}
+    
+    statsIn.close();
+    return count;
+}
+
+//calculate batting average
+void calcBatAvg(int hits[], int bats[], int batAvg[], int count){
+    for (int i=0; i< count; i++) {
+        batAvg[i] = (hits[i]  / bats[i]) * 1000;
+    }
+}
+
+
+//display stats
+void printStats(int player[], int bat[], int hit[], int run[], int rbi[],int bavg[],int count){
+    
+    
+    
+    cout<<"Player Num"<<"\t"<<"At Bat"<<"\t"<<"Hits"<<"\t"<<"Runs"<<"\t"<<"Bat Avg"<<"\t"<<"Comment"<< endl;
+    
+    
+    for (int i = 0; i < count; i++) {
+        string comment;
+        if(bavg[i] >= 500 && bavg[i]>=1000){ comment = "World Series";}
+        else if (bavg[i] < 500 && bavg[i]>=300){comment = "Farm League";}
+        else if (bavg[i] < 300){comment = "Little League";}
+        else{comment ="Not rated";}
+        
+        cout<<player[i]<<"\t"<<bat[i]<<"\t"<<hit[i]<<"\t"<<run[i]<<"\t"<<rbi[i]<<"\t"<<bavg[i]<<"\t"<< comment <<endl;
+    }
+}
+
+//team AVG
+void teamAVG(int bat[], int hit[], int run[],int rbi[], int count){
+ 
+ 
+ int btotal = 0, htotal = 0, rtotal = 0, rbtotal= 0, tavg = 0;
+ 
+ for (int i = 0; i<count; i++) {
+ btotal += bat[i];
+ htotal += hit[i];
+ rtotal += run[i];
+ rbtotal += rbi[i];
+ }
+ tavg = (htotal/btotal) *1000;
+ 
+ cout<<"Team"<<"\t"<<btotal<<"\t"<<htotal<<"\t"<<rtotal<<"\t"<<rbtotal<<"\t"<<tavg<<"\t"<<"N/A";
+ cout<<"Teams Batting AVG: "<< tavg<< endl;
+ 
+ 
+ }
+
+ //finding best
+ void best(int bavg[], int num[], int count){
+ int i, maxIndex = 0;
+ int max = bavg[0];
+ 
+ for(i=0; i < count; i++)
+ {
+ if(max > bavg[i])
+ {max = bavg[i];
+ maxIndex = i;}
+ }
+ cout<< "Best Player in PLayer #: "<< num[maxIndex]<<" With a Batting AVG of: "<< bavg[maxIndex];
+ 
+ 
+ }
+
+//finding worst
+ void worst(int bavg[], int num[], int count){
+ 
+ int i, minIndex = 0;
+ int min = bavg[0];
+ 
+ for(i=0; i < count; i++)
+ {
+ if(min < bavg[i])
+ {min = bavg[i];
+ minIndex = i;}
+ }
+ cout<< "Worst Player in PLayer #: "<< num[minIndex]<<" With a Batting AVG of: "<< bavg[minIndex];
+ 
+ }
+
+
+
+TASK NO 2:
+/*. Restaurant Management system: Define a function called display_menu that display the menu of the restaurant.
+ Suppose you have a file named menu.txt that contains menu, use that file to display meu from Define a function called order,
+ this function should ask the user to select the dishes from the menu and ask the user again and again until user say no (hint: safe the name of dishes in an array).
+ Define a function called generate_bill, this function takes array as a parameter and on the basis of dishes 
+selected generate and display a bill on screen as well as write the same bill in bill.txt  Menu.txt 
+ 
+ 
+Bill.txt Fish chop souy  440.
+Chicken chop souy 410 
+Tax17%   144.5 
+Total bill   994.5*/
+ 
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+    double a = 5.99, b = 4.99, c = 4.99, d = 5.99, e = 9.99;
+    double totalprice=0;
+    double tax = 0.13;
+    char answer='y';
+    char choice=' ';
+    do
+    {
+        cout << "\nGood day! Welcome to The Neighbourhood Bakery! What would you like today?\n";
+        cout << "\nMenu\n Price" << endl;
+        cout << "A: Earl Gray Tea and Biscuits - $" << a << endl;
+        cout << "B: Coffee and a blueberry scone - $" << b << endl;
+        cout << "C: Espresso and a tea biscuit - $" << c << endl;
+        cout << "D: Coffee and a Muffin- $" << d << endl;
+        cout << "E: The Assorted Tea, Scones, and Biscuits Platter- $" << e << endl;
+        cout << "\nAre there any addtional orders? 'Y'or 'N'\n" << endl;
+        cin >> answer;
+        while (answer == 'Y' || answer == 'y')
+        {
+            cout << "Your choice?" << endl;
+            cin >> choice;
+            if (choice == 'A' || choice == 'a')
+            {
+                cout << "\nA: Earl Gray Tea and Biscuits\n" << a << endl;
+                totalprice = totalprice + a;
+            }
+            else if (choice == 'B' || choice == 'b')
+            {
+                cout << "B: Coffee and a blueberry scone" << b << endl;
+                totalprice = totalprice + b;
+            }
+            else if (choice == 'C' || choice == 'c')
+            {
+                cout << "C: Espresso and a tea biscuit" << c << endl;
+                totalprice = totalprice + c;
+            }
+            else if (choice == 'D' || choice == 'd')
+            {
+                cout << "D: Coffee and a Muffin " << d << endl;
+
+                totalprice = totalprice + d;
+            }
+
+            else if (choice == 'E' || choice == 'e')
+            {
+                cout << "E: The Assorted Tea, Scones, and Biscuits Platter "<< endl;
+                totalprice = totalprice + e;
+            }
+            cout << "\nAre there any additional orders? Y or N\n" << endl;
+            cin >> answer;
+            if (answer == 'N' || answer == 'n')
+            {
+                totalprice == (totalprice * tax);
+                cout << "You owe me " << totalprice << ". Pay up and get out." << endl;
+
+            }
+        } 
+    }  
+    while (answer=='y' || answer=='Y');
+    return 0;
+} 
+

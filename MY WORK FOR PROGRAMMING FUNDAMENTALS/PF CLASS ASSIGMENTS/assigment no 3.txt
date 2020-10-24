@@ -1,0 +1,116 @@
+NAME ---------------- MUHAMMAD JAWAD KHAN---------
+
+ROLL NO ------------- 19P0053----------
+
+SECTION ------------- A ---------------
+
+                      TASK NO ----'1';
+
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+int main()
+{
+	ifstream infile,m;
+	infile.open("C:\\Users\\jawad\\Desktop\\name.txt");
+	m.open("C:\\Users\\jawad\\Desktop\\marks.txt");
+	int marks;
+	for(int i=1;i<=3;i++)
+	{
+	m >> marks;
+	string a;
+	 infile >>a;
+	 cout <<a;    
+	if(marks>=90) 
+	{
+		cout <<"A+"<<endl;
+	}
+	else if(marks<=89 && marks>=86)
+	{
+		cout <<"A" <<endl;
+	}
+	else if(marks<=85 && marks>=82)
+	{
+		cout <<"A-" <<endl;
+	}
+	else if(marks<=81 && marks>=78)
+	{
+		cout <<"B+" <<endl;
+	}
+	else if(marks<=77 && marks>=74)
+	{
+		cout <<"B" <<endl;
+	}
+	else if(marks<=73 && marks>=70)
+	{
+		cout <<"B-" <<endl;
+	}
+	else if(marks<=69 && marks>=66)
+	{
+		cout <<"C+" <<endl;
+	}
+	else if(marks<=65 && marks>=62)
+	{
+		cout <<"C" <<endl;
+	}
+	else if(marks<=61 && marks>=58)
+	{
+		cout <<"C-" <<endl;
+	}
+	else if(marks<=57 && marks>=54)
+	{
+		cout <<"D+" <<endl;
+	}
+	else if(marks<=53 && marks>50)
+	{
+		cout <<"D" <<endl;
+	}
+	else if(marks<=50)
+	{
+		cout <<"F" <<endl;
+	}
+	}
+	system("pause");
+	return 0;
+}
+
+                                              TASK NO ----- 2;
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+int main()
+{
+
+	int price,sideline,generaladdmission,premium,a,b,c,d,total,e,f,g,h,T;
+	cout <<"enter the ticket box price:" <<endl;
+	cin >> price;
+	cout <<"how many tickets sold:" <<endl;
+	cin >> a;
+	cout <<"enter the tickets sidline price:" <<endl;
+	cin >> sideline;
+	cout <<"how many tickets sold" <<endl;
+	cin >> b;
+	cout <<"enter the tickets premium price:" <<endl;
+	cin >> premium;
+	cout <<"how many tickets sold:" <<endl;
+	cin >> c;
+	cout <<"enter the tickets generaladdmission:" <<endl;
+	cin >> generaladdmission;
+	cout <<"how many tickets sold" <<endl;
+	cin >> d;
+	ofstream outfile;
+	outfile.open("C:\\Users\\jawad\\Desktop\\tickets.txt");
+	outfile << price <<"   "<< a <<endl << sideline <<"   "<<b <<endl<< premium<< "   " << c <<endl<<generaladdmission <<"   " <<d <<endl;
+	total=a+b+c+d;
+	cout <<"total number of tickets =" <<total <<endl;
+	e=a*price;
+	f=b*sideline;
+	g=c*premium;
+	h=d*generaladdmission;
+	T=e+f+g+h;
+	cout <<  "total sale amount =" <<T<<endl;
+	system("pause");
+	return 0;
+}

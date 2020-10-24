@@ -1,0 +1,52 @@
+task 1;
+#include<iostream>
+using namespace std;
+int main()
+{
+	int num1,num;
+	int no=-1;
+	cout <<"enter the number" << endl;
+	cin >> num1;
+	num = num1*no;
+	cout << num << endl;
+	system ("pause");
+	return 0;
+}
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int num,sum=0;
+	float average;
+	for(int i=1;i<=5;i++)
+	{
+		cout <<"enter the number" << endl;
+		cin >> num;
+		sum = sum+num;
+	}
+	cout <<"the total sum=" << sum << endl;
+	average=sum/5;
+	cout <<"the total average is=" << average << endl;
+	system ("pause");
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a = 5, b = 10, temp;
+    cout << "Before swapping." << endl;
+    cout << "a = " << a << ", b = " << b << endl;
+    temp = a;
+    a = b;
+    b = temp;
+    cout << "After swapping." << endl;
+    cout << "a = " << a << ", b = " << b << endl;
+	system ("pause");
+    return 0;
+}
+
+
+

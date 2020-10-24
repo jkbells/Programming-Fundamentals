@@ -1,0 +1,50 @@
+// LAB TASK 1
+
+// GRADING LOGIC FOR CLASS RESULT IN C++
+
+
+#include<iostream>
+using namespace std;
+void main()
+{
+	int a,b,c,d,e;
+	int p;
+	int t;
+	cout <<"enter the marks of the five subjects" << endl;
+	cin >> a >> b >> c >> d >> e ;
+	p= total_marks/100*100;
+	cout <<"the percenatge is=" <<  p << endl;
+	if (>=90 && t<=100)
+	{
+		cout << " A" << endl;
+	}
+	else if (t>=80 &&  <=89)
+	{
+		cout << " A+" << endl;
+	}
+	else if (t>=70 && t<=79)
+	{
+		cout  << "B" << endl;
+	}
+	else if (t >=60 && t<=69)
+	{
+		cout <<"your grade is" << " C " << endl;
+	}
+	else if ( t >=50 && t <=59)
+	{
+		cout <<"your grade is" << "D" << endl;
+	}
+	else if (t<50)
+	{
+		cout <<"your grade is" <<"  F " << endl;
+	}
+
+ 
+
+
+
+	system ("pause");
+	return 0;
+}
+
+

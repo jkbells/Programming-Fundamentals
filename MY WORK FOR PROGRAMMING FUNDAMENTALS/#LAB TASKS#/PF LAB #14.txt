@@ -1,0 +1,126 @@
+LAB TASK NO 1:
+
+/*Q # 1.  Write a headerfile name (number.h) that contains the following functions  
+ 
+• Add(int a,int b) //print add result
+ • Sub(int a, int b) //print subtraction result 
+• Mul (int a,int b) //print multiplication result •
+ Com(int a, int b)//this function return whether the a is equal to b or not (bool) •
+ Greater (int a,int b) //return the greater number •
+ Less   (int a,int b) //return the small number 
+• Sort_asc(int a[10]) //takes an array of 10 numbers and sort them in ascending order
+ • Sort_dec(int a[10]) //takes an array of 10 numbers and sort them in decending order 
+ 
+Create a .cpp  file, include the header file you make(#include “number.h”) and call all the functions of header file from the main function*/
+
+
+#include<iostream>
+#include<number.h>
+using namespace std;
+void add(int a,int b)
+{
+	int c;
+	c=a+b;
+	cout << c << endl;
+}
+void sub(int a,int b)
+{
+	int c;
+	c=a-b;
+	cout << c << endl;
+}
+void mul (int a,int b)
+{
+	int c;
+	c=a*b;
+	cout << c << endl;
+}
+bool comm(int a,int b)
+{
+	if (a==b)
+	{
+		bool = true ;
+	}
+	else
+	{
+		bool = false;
+	}
+	bool return ;
+}
+int greater(int a,int b)
+{
+	if (a>b)
+	{
+		cout << a << "is greater number" << endl;
+	}
+	else
+		cout << b << "is greater number" << endl;
+}
+int less(int a,int b)
+{
+	if (a<b)
+	{
+		cout << a <<"is a less number" << endl;
+	}
+	else 
+	{
+		cout << b <<"is a less number" << endl;
+	}
+}
+int sort_asc(int a[10])
+{
+	int abc[10]={4,7,2,1,5,9,3,11,22,13};
+	int temp;
+	for (int i=0;i<10;i++)
+	{
+		for (int j=i;j<10;j++)
+		{
+			if(abc[i]>abc[j])
+			{
+			temp=abc[i];
+			abc[i]=abc[j];
+			abc[j]=temp;
+			}
+		}
+	}
+	for (int i=0;i<10;i++)
+		cout << abc[i]<<"  " ;
+}
+int sort_dec(int a[10])
+{
+	int abc[10]={4,7,2,1,5,9,3,11,22,13};
+	int temp;
+	for (int i=0;i<10;i++)
+	{
+		for (int j=i;j<10;j++)
+		{
+			if(abc[i]<abc[j])
+			{
+			temp=abc[i];
+			abc[i]=abc[j];
+			abc[j]=temp;
+			}
+		}
+	}
+	for (int i=0;i<10;i++)
+		cout << abc[i]<<"  " ;
+}
+
+int main()
+{
+	int a,b;
+	cout <<"enter the first number" << endl;
+	cin >> a;
+	cout <<"enter the second number" << endl;
+	cin >> b;
+	add(a,b);
+	sub(a,b);
+	mul(a,b);
+	 comm (a,b);
+	 greater(a,b);
+	 less(a,b);
+	cout <<  sort_asc( a[10]);
+	cout << sort_dec(a[10]);
+	system ("pause");
+	return 0;
+}

@@ -1,0 +1,260 @@
+TASK NUMBER 1------
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int marks;
+	cout <<"Enter your marks:" <<endl;
+	cin>>marks;
+	
+
+		if (marks==90)
+	{
+		cout <<"your grade is A+:" <<endl;
+	}
+	 else if(marks<=89 && marks>=86)
+	{
+		cout<<"your grade is A:"<<endl;
+	}
+	else if(marks<=85 && marks>=82)
+	{
+		cout <<"your grade is A-:" <<endl;
+	}
+	 else if(marks<=81 && marks>=78)
+	{
+		cout <<"your grade is B+:"<<endl;
+	}
+	else if(marks<=77 && marks>=74)
+	{
+		cout <<"your grade is B:" <<endl;
+	}
+	else if (marks<=73 && marks>=70)
+	{
+		cout <<"your grade is B-:" <<endl;
+	}
+	else if (marks<=69 && marks>=66)
+	{
+		cout <<"your grade is C+:" <<endl;
+	}
+	else if (marks<=65 && marks>=62)
+	{
+		cout <<"your grade is C:" <<endl;
+	}
+	else if(marks<=61 && marks>=66)
+	{
+		cout <<"your grade is C-:" <<endl;
+	}
+	else if(marks<=57 && marks>=54)
+	{
+		cout <<"your grade is D+:" <<endl;
+	}
+	else if (marks<=53 && marks>=50)
+	{
+		cout <<"your grade is D:" <<endl;
+	}
+	else if (marks<50 && marks>=0)
+	{
+		cout <<"your grade is F:" <<endl;
+	}
+	else
+	{
+		cout<<"enter number is invalid";
+	}
+	
+		
+	system ("pause");
+	return 0;
+}
+
+TASK  NO _______2;
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+	string Grade1;
+	double A,B=0,C=0,SGPA,S;
+	for(int i=1;i<=3;i++)
+{	cout <<"Enter your Grade:" <<endl;
+	cin >> Grade1;
+	if(Grade1=="A+"||Grade1=="A"||Grade1=="A-"||Grade1=="B+"||Grade1=="B"||Grade1=="B-"||Grade1=="C+"||Grade1=="C"||Grade1=="C-"||Grade1=="D+"||Grade1=="D"||Grade1=="F")
+	{if(Grade1=="A+")
+	{
+		A=4.00;
+	}
+	if(Grade1=="A")
+	{
+		A=4.00;
+	}
+	if(Grade1=="A-")
+	{
+		A=3.67;
+	}
+	if(Grade1=="B+")
+	{
+		A=3.33;
+	}
+	if(Grade1=="B")
+	{
+		A=3.00;
+	}
+	if(Grade1=="B-")
+	{
+		A=2.67;
+	}
+	if(Grade1=="C+")
+	{
+		A=2.33;
+	}
+	if(Grade1=="C")
+	{
+		A=2.00;
+	}
+	if(Grade1=="C-")
+	{
+		A=1.67;
+	}
+	if(Grade1=="D+")
+	{
+		A=1.33;
+	}
+	if(Grade1=="D")
+	{
+		A=1.00;
+	}
+	if(Grade1=="F")
+	{
+		A=0.00;
+	}
+	B=B+A;
+	C=C+1;
+	}
+	}
+	S=B/C;
+	cout<<"SGPA"<<S;
+	system("pause");
+	return 0;
+}
+
+TASK NO -------3;
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	double a,b,c,d,e,f,g,h,i,j,k,l;
+	cout <<"enter your units:" <<endl;
+	cin >>a;
+	if(a<=50)
+	{
+		b=a*1.20;
+		cout << b ;
+	}
+	if(a>50&&a<=150)
+	{
+		c=50*1.20;
+		d=a-50;
+		e=d*1.50;
+		f=e+c;
+		cout << f ;
+	}
+	if(a>150&&a<250)
+	{
+		c=50*1.20;
+		g=100*1.50;
+		h=a-150;
+		i=h*1.80;
+		j=c+g+i;
+		cout << j;
+	}
+	if(a>=250)
+	{
+		b=50*1.20;
+		c=100*1.50;
+		e=100*1.80;
+		g=a-250;
+		h=g*2.00;
+		i=b+c+e+h;
+		cout << i;
+	}
+	system("pause");
+	return 0;
+}
+
+
+TASK NO _______ 5;
+
+#include<iostream>
+using namespace std;
+int main ()
+{
+	int a,b,c,d,e,f,g;
+	cout <<"Enter the total no of cookies:" <<endl;
+	cin >> a;
+	cout << "Enter the no ofcookies of box:" <<endl;
+	cin >> b;
+	cout <<"Enter the no of booxes in the container:" <<endl;
+	cin >> c;
+	d=a/b;
+	e=a%b;
+	f=a/b;
+	g=a%b;
+	cout <<"total no of boxes :" << d <<endl;
+	cout << "left over cookies:" << e <<endl;
+	cout <<"total containers:" << f  <<endl;
+	cout << "left over booxies:" << g << endl;
+	system ("pause");
+	return 0;
+}
+
+
+TASK NO 4-------;
+
+#include<iostream>
+using namespace std;
+#include<cmath>
+int main()
+{
+	double a,b,c,d,e,f;
+	
+	
+	cout<<"entre the value of x^2";
+	cin>>a;
+	cout<<"enter the value of x";
+	cin>>b;
+	cout<<"enter the value of constant";
+	cin>>c;
+	d=(b*b)-(4*a*c);
+	
+	if (d>=0)
+	{
+		if(d>0)
+		{
+			cout<<"THE ROOTS ARE REAL";
+			e=((-1*b)+pow(d,0.5))/(2*a);
+			f=((-1*b)-pow(d,0.5))/2*a;
+			cout<<"roots are"<<e<<"&"<<f<<endl;
+		
+		}
+		else
+		
+			
+			{
+				cout<<" equation has a single roots";
+				e=(-b+pow(d,0.5))/2*a;
+				f=(+b+pow(d,0.5))/2*a;
+				cout<<"roots are"<<e<<"&"<<f<<endl;
+			}
+	}
+	else
+	{
+		cout<<"the roots are imiginary";
+		e=(-b+pow(d,0.5))/(2*a);
+		f=(-b+pow(d,0.5))/(2*a);
+		cout<<"roots are"<<e<<f<<endl;
+	}
+	system("pause");
+	return 0;
+}

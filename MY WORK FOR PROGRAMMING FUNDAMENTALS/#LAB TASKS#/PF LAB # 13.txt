@@ -1,0 +1,160 @@
+
+TASK NO 1!!:
+_____________
+
+
+/*Write a program whose main function is merely a collection of variable declarations and function calls.
+ This program reads a text and outputs the letters, together with their counts, as explained below in the function printResult.
+ (There can be no global variables! All information must be passed in and out of the functions. Use a structure to store the information.)  
+Your program must consist of at least the following functions:
+  1. Function openFile: Opens the input and output files. 
+You must pass the file streams as parameters (by reference, of course). 
+If the file does not exist, the program should print an appropriate message and exit. 
+The program must ask the user for the names of the input and output files. 
+ 2. Function count: Counts every occurrence of capital letters A-Z and small letters a-z in the text file opened in the function openFile.
+ This information must go into an array of structures. 
+The array must be passed as a parameter, and the file identifier must also be passed as a parameter. 
+ 3. Function printResult: Prints the number of capital letters and small letters, as well as the percentage of capital letters for every letter A-Z and the percentage of small letters for every letter a-z. 
+The percentages should look like this: ”25%”. This information must come from an array of structures, and this array must be passed as a parameter. */ 
+ 
+#include <iomanip>
+#include <cmath>
+#include <fstream>
+#include <cstring>
+#include <string>
+#include <iostream>
+using namespace std;
+    //Structs
+const int MAX_LETTERS = 26 ;
+struct letterCount
+{
+  char letter;
+  int count;
+  int count_caps;
+};
+    //Function Prototypes
+int openFile(ifstream& infile, ofstream& outfile);
+void count(letterCount letters[], ifstream& infile);
+void printResult(letterCount letters[], ofstream& outfile);
+    //Main Program
+int main()
+{
+    letterCount counts[MAX_LETTERS];
+    ifstream infile;
+    ofstream outfile;
+    openFile(infile, outfile);
+    count(counts, infile);
+    printResult(counts, outfile);
+    return 0 ;
+}
+    //User-defined Function 1
+int openFile(ifstream& inFile, ofstream& outFile)
+{
+    ifstream infile;
+    ofstream outfile;
+    string inputFile;
+    string outputFile;
+     cout << "Enter the input file name: ";
+    cin >> inputFile;
+    cout << endl;
+    infile.open(inputFile.c_str());
+    if (!infile)
+    {
+        cout << "Cannot open " << inputFile << ". Program terminated." << endl;
+        return 1;
+    }
+    cout << "Enter the output file name: ";
+    cin >> outputFile;
+    cout << endl;
+    outfile.open(outputFile.c_str());
+    cout << "Processing Data..." << endl << endl;
+    cout << "Data can be found in file " << outputFile << endl;
+}
+    //User-defined function 2
+void count(letterCount letters[], ifstream& infile)
+{
+    char ch, ch1;
+    unsigned int i = 0, line = 0, minLine = 0, minChars = 65535, maxLine = 0, maxChars = 0, totChars = 0;
+
+    i = 0;
+    while (ch != EOF)
+    {
+        if (isalpha (ch))
+        {
+            int up = isupper (ch) ? 1 : 0;
+            ch1 = ch;
+            int idx = tolower(ch1) - 'a';
+            letters[idx].count++;
+            letters[idx].letter = ch1;
+            letters[idx].count_caps += up;
+        }
+        i++;
+        if ( ch == '\n')
+        {
+            line++;
+            totChars += i - 1;
+            if (i < minChars)
+            {
+               minChars = i;
+                minLine = line;
+            }
+            else if (i > maxChars || minChars > maxChars)
+            {
+               maxChars = i;
+
+                maxLine = line;
+            }
+ 
+            i = 0;
+        }
+    }
+    if (i > 0)
+    {
+        line++;
+        totChars += i;
+        if (i<minChars)
+        {
+            minChars = i;
+            minLine = line;
+        }
+        else if (i > maxChars || minChars > maxChars)
+        {
+            maxChars = i;
+            maxLine = line;
+        }
+         i = 0;
+    }
+    infile.close();
+}
+void printResult(letterCount letters[], ofstream& outfile)
+{
+    int total_caps ;
+    int total ;
+    double percent;
+    total_caps = 0 ;
+    total = 0 ; 
+    for (int i = 0 ; i < MAX_LETTERS; i++)
+    {
+        if (letters[i].count > 0)
+        {
+            total_caps += letters[i].count_caps ;
+            total += letters[i].count ;
+        }
+    }
+    outfile << "Total number of letters: " << total  << endl ;
+    outfile << "Total number of capital letters: " << total_caps << endl ;
+    outfile << "Total number of lowercase letters: " << total - total_caps << endl ;
+    outfile << "Letter\t" << "Total occurrence\t" << "Capital occurrence\t" << "% of capital letters" << endl ;
+    for (int i = 0 ; i < MAX_LETTERS; i++)
+    {
+        if (letters[i].count > 0)
+        {
+            percent = (static_cast<double> (letters[i].count_caps)/static_cast<double> (total_caps)) * 100;
+            outfile << letters[i].letter << "\t"
+                << letters[i].count << "\t\t\t"
+                << letters[i].count_caps << "\t\t\t"
+                << percent  << "%" << endl ;
+        }
+    }
+    outfile.close();
+}

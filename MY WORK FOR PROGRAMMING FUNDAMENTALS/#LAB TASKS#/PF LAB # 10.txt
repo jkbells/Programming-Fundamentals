@@ -1,0 +1,76 @@
+TASK NO 10:
+
+ /*Write a program that takes two numbers from the user and operation that user want to perform and display the result accordingly. 
+Ask the user whether he/she wants to continue or not See the output below)  
+[Add exceptional handling where necessary incase of this program multiplication and division ]
+ Output Enter the value 1:2
+ Enter the value 2:3
+ =======List of operation=======
+ Press + for Addition
+ Press - for Subtraction 
+Press * for Multiplication 
+Press / for Division =============================== + Addition:
+ 5 Do you want to continue(y/n)?y
+ Enter the value 1:3 
+Enter the value 2:4 
+=======List of operation======= 
+Press + for Addition
+ Press - for Subtraction 
+Press * for Multiplication 
+Press / for Division 
+=============================== - Subtraction:
+ -1 Do you want to continue(y/n)?
+n Press any key to continue . .*/
+
+// KINDLY  ADD THE EXCEPTIONAL HANDLING IN THIS PROGRAM THIS IS ONLY FOR YOU  
+ 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int num1,num2,a,b;
+	int result;
+	int sum=0;
+	char c,option;
+	do
+	{
+		cout <<"enter your first number:" << endl;
+		cin >> num1;
+		cout <<"enter your second number" <<endl;
+		cin >> num2;
+		cout <<"========operation list========" << endl;
+		cout <<"press '+' for addition" <<endl;
+		cout <<"press '-' for subtraction" << endl;
+		cout <<"press '*' for multiplication" << endl;
+		cout <<"press '/' for division" << endl;
+		cout <<"==============================================" << endl;
+		cin >> option;
+		if (option=='+')
+		{
+			result = num1+num2;
+			cout << result << endl;
+		}
+		else if(option=='-')
+		{
+			result = num1-num2;
+			cout << result << endl;
+		}
+		else if(option=='*')
+		{
+			result = num1*num2;
+			cout << result << endl;
+		}
+		else if(option=='/')
+		{
+			result = num1/num2;
+			cout << result << endl;
+		}
+		cout <<"do you want to countinue(y/n)?";
+		cin >> c;
+	}
+	
+	while(c!='n');
+	system ("pause");
+	return 0;
+}

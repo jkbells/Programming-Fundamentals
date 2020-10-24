@@ -1,0 +1,187 @@
+// TASK NO 1:
+________________
+
+/*1. Generate a random number between 1 and 9 (including 1 and 9). 
+Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right.*/
+
+/*#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main()
+{
+int num;
+int guess; 
+bool isGuessed; 
+srand(time(0));
+num = rand() % 100; 
+isGuessed = false; 
+while (!isGuessed) 
+{ 
+cout << "Enter an integer greater"
+<< " than or equal to 0 and "
+<< "less than 100: "; 
+cin >> guess; 
+cout << endl; 
+if (guess == num) 
+{ 
+cout << "You guessed the correct "
+<< "number." << endl; 
+isGuessed = true;
+} 
+else if (guess < num) 
+cout << "Your guess is lower than the "
+<< "number.\n Guess again!"
+<< endl; 
+else 
+cout << "Your guess is higher than "
+<< "the number.\n Guess again!"
+<< endl;
+} 
+system ("pause");
+return 0;
+}*/
+
+// TASK NO 2:
+_______________
+
+/*Check whether a year is leap year or not?
+Write a C++ program that ask user to input number, year, determines whether the year is a leap year.
+ A year is a leap year if it is divisible by 4, but is not divisible by 100 except when divisible by 400.
+ (The year 2000 was a leap year.) Ask user whether he/she wants to enter more data or not?*/
+
+/*#include <iostream>
+using namespace std;
+int main()
+{
+    int year;
+    char c;
+    
+    do
+    {
+    cout << "Enter a year: ";
+    cin >> year;
+    if (year % 4 == 0)
+    {
+        if (year % 100 == 0)
+        {
+            if (year % 400 == 0)
+                cout << year << " is a leap year.";
+            else
+                cout << year << " is not a leap year.";
+        }
+        else
+            cout << year << " is a leap year.";
+    }
+    else
+        cout << year << " is not a leap year.";
+        cout <<"Do you want to enter more data (y/n)?" ;
+        cin >> c;
+    }
+    while (c!='n');
+        
+        system ("pause");
+    return 0;
+}*/
+
+// TASK NO 3 
+_________________ 
+
+/*A carpet cleaning company estimates cleaning prices assuming a room size of 10 feet by 12 feet at a cost of $39.
+ Rooms smaller than 10 feet by 12 feet are charged at the standard room size. 
+ Rooms larger than 10 by 12 feet are charged the standard rate plus $.25 per square foot for each foot greater than the standard room size.
+  Design a program that asks the user for the number of rooms to be cleaned and the size of each room.
+ Calculate the cost of cleaning the rooms.*/
+
+
+/*#include<iostream>
+#include<cmath>
+using namespace std;
+int room_size(int lenght , int width)
+{
+	int standard_size;
+	int cost;
+	int room_size;
+	int add;
+	standard_size = 10*12;
+	room_size=lenght*width;
+	if(room_size<=standard_size)
+	{
+		cost=39;
+	}
+	else
+	{
+		add = room_size-120;
+		cost = 39+(0.25*add);
+		cout <<"the cost of the room" << "="  << cost << endl;
+	}
+	return cost;
+}
+int main()
+{
+	int l,w;
+	cout <<"enter the length and width" << endl;
+	cin >> l>> w;
+	cout<<"cost of the room" << room_size(l,w);
+	system ("pause");
+	return 0;
+}*/
+
+// TASK NO 4
+______________
+
+/* Write a C++ program that prints all the numbers from 0 to 6 except 3 and 6.
+Expected Output : 0 1 2 4 5 */
+
+/*#include<iostream>
+using namespace std;
+int main()
+{
+
+	for (int i=0; i<7;i++)
+	{
+		if(i!=3 && i!=6)
+		{
+			cout << i ;	
+		}
+	}
+	cout << endl;
+	
+	system("pause");
+	return 0;
+}*/
+
+// TASK NO 5
+_______________
+
+/* Write a C++ program to create the multiplication table (from 1 to 10) of a number.
+Expected Output:
+Input a number: 6
+6 x 1 = 6
+6 x 2 = 12
+6 x 3 = 18
+6 x 4 = 24
+6 x 5 = 30
+6 x 6 = 36
+6 x 7 = 42
+6 x 8 = 48
+6 x 9 = 54
+6 x 10 = 60*/
+
+/*#include<iostream>
+using namespace std;
+int main()
+{
+	int t;
+	cout <<"enter the number to show the multiplication table" << endl;
+	cin >> t;
+	for (int i=1;i<11;i++)
+	{
+		cout << t << "*" << i << "=" << t*i   << endl;
+	}
+	
+	system ("pause");
+	return 0;
+	
+}*/
+

@@ -1,0 +1,100 @@
+                                                     
+                                          
+                                         ------------ MUHAMMAD JAWAD KHAN -----------------
+                                         ------------     P19-0053        -----------------
+                                         ------------  ASSIGMENT NO 4     -----------------
+
+  ----- TASK NO 1 -----
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+ 
+	 void funfile(string f , int a , int b)
+	 {
+		 if ( f=="even")
+		 {
+			 ofstream source;
+			 source.open("even.txt",ios::app);
+			 source << a <<"  " << b <<endl;
+		 }
+		 if(f=="odd")
+		 {
+			 ofstream on ;
+			 on.open("odd.txt",ios::app);
+			on <<a << "   " << b <<endl;
+		 }
+		 if (f=="evenodd")
+		 { 
+			ofstream eo;
+			eo.open("evenodd.txt",ios::app);
+			eo <<a <<"   " << b <<endl;
+		 }
+	 }
+	 void funevenodd(int i,int l)
+	 {
+		 if( i%2==0 && l%2==0)
+		 {
+			 funfile("even",i,l);
+		 }
+		 else if ( i%2!=0 && l%2!=0)
+		 {
+			 funfile("odd",i,l);
+		 }
+
+		 else
+		 {
+			 funfile("evenodd",i,l);
+
+
+	 }
+	 }
+	 void funsplit(int num)
+{
+	int c;
+	for (int i=1;i<=num;i++)
+	{
+		for (int l=1;l<=i;l++)
+		{
+			c=i+l;
+			if(c==num)
+			{
+		
+				funevenodd(i,l);
+			}
+		}
+	}}
+int main()
+{
+	int a;
+	cout<<"enter number";
+	cin>>a;
+	funsplit(a);
+	system("pause");
+	return 0;
+
+}
+
+                                  --------------- TASK NO 2 -------------
+
+#include<iostream>
+using namespace std;
+int main()
+
+
+{
+	
+	int lock,cont=0,m=1,p=3;
+	cout<<"enter lockers:";
+	cin>>lock;
+	while(m<=lock)
+	{
+		m =m+p;
+		p+=2;
+		cont+=1;
+	}
+	cout<<" lockers  opend";
+	cout<<cont<<endl;
+	system("Pause");
+	return 0;
+}

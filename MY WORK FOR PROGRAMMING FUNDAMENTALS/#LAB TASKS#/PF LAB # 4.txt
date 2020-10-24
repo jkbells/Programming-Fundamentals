@@ -1,0 +1,259 @@
+//  TASK NO 1:
+
+/*Consider the definition of the function main.
+int main()
+{
+int x, y;
+char z;
+double rate, hours;
+double amount;
+.
+.
+}
+The variables x, y, z, rate, and hours referred to in items a through f below are the variables of the function main.
+ Each of the functions described must have the appropriate parameters to access these variables. Write the following definitions:
+a. Write the definition of the function initialize that initializes x and y to 0 and z to the blank character.
+b. Write the definition of the function getHoursRate that prompts the user to input the hours worked 
+and rate per hour to initialize the variables hours and rate of the function main
+c. Write the definition of the value-returning function payCheck that 
+calculates and returns the amount to be paid to an employee based on the hours worked and rate per hour. 
+The hours worked and rate per hour are stored in the variables hours and rate, respectively, of the function main.
+ The formula for calculating the amount to be paid is as follows: For the first 40 hours, the rate is the given rate; 
+ for hours over 40, the rate is 1.5 times the given rate.
+d. Write the definition of the function printCheck that prints the hours worked, rate per hour, and the salary.
+e. Write the definition of the function funcOne that prompts the user to input a number.
+ The function then changes the value of x by assigning the value of the expression 2 times the (old) value of 
+ x plus the value of y minus the value entered by the user.
+f. Write the definition of the function nextChar that sets the value of z to the next character stored in z.
+g. Write the definition of a function main that tests each of these functions*/
+
+/*#include <iostream>
+#include<cmath>
+using namespace std;
+void initialize(int &x,int &y,char &z)
+{
+	x=0;
+	y=0;
+	z=' ';
+}
+void get_hours_rates(double &hrs,double &rate)
+{
+cout <<"enter the hours" << endl;
+cin >> hrs;
+cout <<"enter the rates" << endl;
+cin >> rate;
+}
+int paycheck(double &hours_W,double &rates_W)
+{
+double amount;
+	if (hours_W<=40)
+	{
+		amount =rates_W;
+	}
+	else
+	{
+		amount=rates_W*1.5;
+		
+	}
+	return amount;
+}
+void print_check(double &hrs_W, double &rate_W ,double &amount_W)
+{
+	cout <<"the total hours are=" << hrs_W << endl;
+	cout <<"the total rates are=" << rate_W << endl;
+	cout <<"the total amount is=" << amount_W << endl;
+}
+int func_one(int &x, int y)
+{
+	int num,a;
+	a=x;
+	cout <<"Enter a number" << endl;
+	cin >> num;
+    x=(2*a)+(y-num);
+	return x;
+}
+char next_char(char &z)
+{
+	z=z+1;
+	return z;
+}
+
+
+int main()
+	{
+		int x,y;
+		char z;
+		double hours,rates;
+		double amount;
+		initialize(x,y,z);
+		cout<<"After calling initialize()"<<endl;
+		cout<<"x = "<<x<<" y = "<<y<<" z = "<<z<<endl;
+		get_hours_rates(hours,rates);
+		cout<<"After calling get_hours_rates()"<<endl;
+		cout<<"Hours: "<<hours<<endl;
+		cout<<"rates= "<<rates<<endl;
+
+		amount=paycheck(hours,rates);
+		cout<<"After calling paycheck()"<<endl;
+		cout<<"Amount: "<<paycheck(hours,rates)<<endl;
+
+		cout<<"After calling print_check()"<<endl;
+		print_check(hours,rates ,amount);
+
+
+		cout<<"After calling func_one()"<<endl;
+		cout<<"x = "<<func_one(x,y)<<endl;
+
+		cout<<"After calling next_char()"<<endl;
+		cout<<"z ="<<next_char(z)<<endl;
+
+
+		system ("pause");
+		return 0;
+}*/
+
+//  TASK N0 2:
+
+/*Write a value-returning function, isVowel,
+ that returns the value true if a given character is a vowel and otherwise returns false*/
+ 
+ /*#include<iostream>
+using namespace std;
+bool guess_me(char ch)
+{
+
+	bool flag;
+		if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+		{
+			flag= true;
+		}
+		else
+		{
+			flag = false;
+		}
+		return flag;
+}
+int  main()
+{
+	char ch;
+	cout <<"please enter the word" << endl;
+	cin >> ch;
+		cout<<guess_me(ch);
+	system ("pause");
+	return 0;
+}*/
+
+// TASK NO 3;
+
+/*Write a program that defines the named constant PI, const double PI = 3.1419 which stores the value of p. 
+The program should use PI and the functions listed in Table below
+a. Output the value of pi
+b. Prompt the user to input the value of a double variable r, which stores the radius of a sphere. The program then outputs the following
+i. The value of 4 ƒÎr2, which is the surface area of the sphere.
+ii. iThe value of (4/3) ƒÎr3, which is the volume of the sphere.*/
+
+/*#include<iostream>
+#include<cmath>
+using namespace std;
+const double PI =3.1419;
+void pi ()
+{
+	cout<<sqrt (PI)<<endl;
+
+}
+void surface_area(int r)
+{
+	double a;
+	a=4*PI*r*r ;
+	cout <<" the surface area is=" <<  a << endl;
+}
+void volume_of_the_sphere(int r)
+{
+	double b;
+	b=4/3*PI*r*r*r;
+	cout << " the volume of the sphere is= " << b << endl;
+}
+
+int main()
+{
+	pi ();
+	int r;
+	cout <<"enter the value of r" << endl;
+	cin >> r;
+	surface_area(r);
+	cout <<"enter the value  of r" << endl;
+	cin >> r;
+	volume_of_the_sphere(r);
+	system ("pause");
+	return 0;
+}*/
+
+// TASK NO 4:
+
+/*Write a program that prompts the user to input a sequence of characters and outputs the number of vowels. 
+(Use the function isVowel you defined in task 2)*/
+
+/*#include<iostream>
+#include<string>
+using namespace std;
+int guess_me(string  guess)
+{
+	int count =0;
+	for (int i=0;i<guess.size();i++)
+	{
+		if(guess[i]=='a' || guess[i]=='e' || guess[i]=='i' || guess[i]=='o' || guess[i]=='u')
+		{
+			count ++;
+		}
+	
+	}
+	return count; 
+}
+int main()
+{
+	string guess;
+	int count ;
+	cout <<"please enter the word" << endl;
+	getline (cin,guess);
+		count =guess_me(guess);
+		cout << " there are" << "    " << count << "\t"<< "words in the sequence of the string " << endl;
+	
+	system ("pause");
+	return 0;
+}*/
+
+//  TASK NO 5:
+
+ /*Write a progam that reads a string and outputs the number of times each lowercase vowel appears in it. 
+Your program must contain a function with one of its parameters as a string variable,
+ and return the number of times each lowercase vowel appears in it.
+  Also write a program to test your function.
+   (Note that if str is a variable of type string, then str.at(i) returns the character at the ith
+position. The position of the first character is 0. Also, str.length() returns the length of the str, that is,
+ the number of characters in str.)*/
+ 
+ /*#include<iostream> 
+ #include<string>
+using namespace std;
+void Count(string str) 
+{ 
+    int  lower = 0; 
+    char ch=0;
+    for (int i = 0; i < str.length(); i++) 
+    { 
+        if (str[i] >= 'a' && str[i] <= 'z') 
+            lower++; 
+    } 
+    cout << "Lower case letters : " << lower << endl; 
+} 
+  
+// Driver function 
+int main() 
+{ 
+    string str;
+	cout <<"enter the string to check whether the the lowercase letter exist or not" << endl;
+	cin >> str; 
+    Count(str); 
+    system ("pause");
+    return 0; 
+}

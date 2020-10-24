@@ -1,0 +1,266 @@
+task 1;
+
+ // PROGRAM THAT FINDS THE EVEN ODD NUMBERS in  c++ 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n1,n2;
+	int i=1;
+	cout <<"enter your first number" << endl;
+	cin >> n1;
+	cout <<"enter your second number" << endl;
+	cin >> n2;
+	while (n1<n2)
+	{
+		if(n1%2==1)
+		{
+			cout << n1 << endl;
+		}
+		n1++;
+	}
+	system ("pause");
+	return 0;
+}
+
+// LAB TASK 2
+
+// SUM OF EVENS NUMBERS BETWEEN FIRST NUMBER AND SECOND NUMBERS IN C++
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n1,n2,i=1;
+	int sum=0;
+	cout <<"enter your first number" << endl;
+	cin >> n1;
+	cout <<"enter your second number" << endl;
+	cin >> n2;
+	while (n1<=n2)
+	{
+		if(n1%2==0)
+		{
+			cout << n1 << endl;
+			sum= sum+n1;
+		}
+		n1++;
+	}
+		cout <<"the sum of the evens numbers are=" << sum << endl;
+	
+	system ("pause");
+	return 0;
+}
+
+// LAB TASK NO 3
+
+// MULTIPLICATION BETWEEN TWO NUMBERS IN C++ 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n1,n2,i=1;
+	int sum=0;
+	cout <<"enter your first number" << endl;
+	cin >> n1;
+	cout <<"enter your second number" << endl;
+	cin >> n2;
+	while (n1<=n2)
+	{
+	cout << n1 <<"*" << n1 << "=" << n1*n1 << endl;
+	n1++;
+	}
+	system ("pause");
+	return 0;
+}
+
+// LAB TASK NO 4:
+
+// MULTIPLY TWO NUMBERS AND ADDITION 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n1,n2;
+	int sum=0;
+	cout <<"enter the first number" << endl;
+	cin >> n1;
+	cout <<"enter the second number" << endl;
+	cin >> n2;
+	while (n1<n2)
+	{
+		if(n1%2==1)
+		{
+			cout << n1 << "*" << n1 << "=" << n1*n1 <<endl;
+			sum = sum + n1*n1;
+		}
+		n1++;
+	}
+	cout <<"the sum of the squares of odd numbers are=" << sum << endl;
+	system ("pause");
+	return 0;
+}
+
+// LAB TASK 5:
+
+// GUESS THE NUMBERS IN C++ 
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main()
+{
+int num;
+int guess; 
+bool isGuessed; 
+srand(time(0));
+num = rand() % 100; 
+isGuessed = false; 
+while (!isGuessed) 
+{ 
+cout << "Enter an integer greater"
+<< " than or equal to 0 and "
+<< "less than 100: "; 
+cin >> guess; 
+cout << endl; 
+if (guess == num) 
+{ 
+cout << "You guessed the correct "
+<< "number." << endl; 
+isGuessed = true;
+} 
+else if (guess < num) 
+cout << "Your guess is lower than the "
+<< "number.\n Guess again!"
+<< endl; 
+else 
+cout << "Your guess is higher than "
+<< "the number.\n Guess again!"
+<< endl;
+} 
+system ("pause");
+return 0;
+}
+
+// LAB TASK 6:
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n=0;
+	int average=0;
+	int sum =0;
+	int count=0;
+	while (n!=-999)
+	{
+	cout <<"enter your integers" << endl;
+	cin >> n;
+	sum = sum + n;
+	count ++;
+	if (n==-999)
+	{
+		sum = sum -n;
+		average = sum /count++;
+	}
+	}
+	cout <<"the total avearge is=" << average <<endl;
+	cout <<"the total sum is=" << sum << endl;
+	system ("pause");
+	return 0;
+}
+
+// LAB TASK 6:
+
+// FIND THE PERFECT NUMBER IN C++ CODE
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n,sum=0;
+	cout <<"enter your number" << endl;
+	cin >> n;
+	for (int i=1;i<n;i++)
+	{
+		if(n%i==0)
+			sum = sum+i;
+	}
+	if(sum==n)
+		cout <<"the number is perfect" << endl;
+	else
+		cout <<"the number is not perfect" << endl;
+	system ("pause");
+	return 0;
+}
+
+// LAB TASK 7:
+
+// ONLINE CABLE COMPANY BILLS CODE IN C++ 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	const double reg_charges=10.00;
+	const int reg_min=50;
+	const double reg_rate_over_50=0.20;
+
+	const double prem_serv_charges=25.00;
+	const int prem_free_day_min=75;
+	const double prem_day_rate_over_75=0.10;
+
+	const int prem_free_night_min=100;
+	const double prem_night_rate_over_100=0.05;
+
+	int  account,min;
+	char service_type;
+	double amount_due=0;
+	int day_min ;
+	int night_min;
+	
+	cout <<"enter your accout number" << endl;
+	cin >> account;
+	cout <<"enter your service type" 
+		<<"R or r (reguler service)"
+		<<"P or p (premium service)" << endl;
+	cin >> service_type;
+	cout <<"enter the number of min that can telephone service was used:" << endl;
+	cin >> min;
+	switch(service_type)
+	{
+	case 'r':
+	case 'R':
+		cout <<"account number=" 
+			<< account <<endl;
+		amount_due= amount_due+reg_charges/50;
+			cout <<"amount_due$" << amount_due  <<endl;
+		break;
+	case 'P':
+	case 'p':
+		cout <<"enter the min day time used" << endl;
+		cin >> day_min;
+		cout <<"enter the night time used:" <<endl;
+		cin >> night_min;
+		if(day_min>prem_free_day_min)
+			amount_due= amount_due+(day_min-prem_free_day_min)*prem_day_rate_over_75;
+		if(night_min>prem_free_night_min)
+			amount_due = amount_due+(night_min-prem_free_night_min)*prem_night_rate_over_100;
+		cout << "Service Type: Premium" << endl;
+        cout << "Minutes Service Used (Day): "
+             << day_min << endl;
+		cout << "amount_due=" << amount_due << endl;
+        cout << "Minutes Service Used (Night): "
+             << night_min << endl;
+		cout << "amount_due=" << amount_due << endl;
+		break;
+	default:
+		cout <<"invalid customer type" <<endl;
+	}
+	system ("pause");
+	return 0;
+}
